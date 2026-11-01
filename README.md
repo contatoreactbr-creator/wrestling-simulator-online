@@ -17,7 +17,10 @@ O servidor será a autoridade do relógio global. A proposta inicial é usar tur
 
 ## Estado atual
 
-Esta é a **Fase 1 — protótipo de interface**. O site atual é uma demonstração local e ainda não possui contas, banco de dados, partidas online ou sincronização multiplayer. Os dados criados no navegador não são compartilhados entre jogadores.
+- **Fase 1 — protótipo de interface:** publicada em `index.html`; ainda funciona localmente.
+- **Fase 2 — fundação do banco:** migration PostgreSQL/Supabase em `supabase/migrations/202611010001_initial_world.sql`.
+
+A Fase 2 prepara perfis, promoções, wrestlers globais, contratos, relógio compartilhado e ordens por turno. Ela ainda precisa ser aplicada em um projeto Supabase e conectada ao frontend. O multiplayer ainda não está ativo.
 
 ## Executar localmente
 
@@ -34,11 +37,10 @@ Acesse `http://localhost:8080`.
 
 ## Próximas etapas
 
-1. Estruturar o frontend e a navegação do jogo.
-2. Criar backend, autenticação e banco de dados.
-3. Implementar identidade global dos wrestlers e contratos.
-4. Implementar o calendário global autoritativo.
-5. Adicionar negociações, shows, finanças e multiplayer.
+1. Criar um projeto Supabase e aplicar a migration da Fase 2 (veja `docs/FASE_2_BANCO_DE_DADOS.md`).
+2. Conectar cadastro/login e fundação da promoção ao banco.
+3. Implementar o serviço de servidor que fecha e processa os turnos globais.
+4. Adicionar negociações, shows, finanças e multiplayer.
 
 ## Dados e propriedade intelectual
 
