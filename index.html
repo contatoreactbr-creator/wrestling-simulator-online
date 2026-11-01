@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10131c">
+<meta name="description" content="Wrestling Simulator Online — construa sua própria empresa de wrestling.">
+<title>Wrestling Simulator Online</title>
+<style>
+:root{color-scheme:dark;--bg:#0b0e15;--panel:#151b28;--line:#293247;--text:#f4f6fb;--muted:#aab3c5;--red:#e5484d;--gold:#f4bd50}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 80% 0%,#25243a 0,transparent 42%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{width:min(1100px,92%);margin:auto}.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}.brand{font-weight:900;letter-spacing:.04em}.brand span{color:var(--red)}.tag{font-size:12px;color:var(--gold);border:1px solid #705b32;padding:5px 10px;border-radius:30px}
+.hero{padding:76px 0 58px;max-width:800px}.eyebrow{color:var(--gold);font-weight:800;text-transform:uppercase;letter-spacing:.14em;font-size:12px}.hero h1{font-size:clamp(38px,7vw,72px);line-height:1.02;margin:16px 0}.hero p{color:var(--muted);font-size:18px;max-width:660px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{border:0;border-radius:10px;padding:13px 19px;font-weight:800;text-decoration:none;cursor:pointer}.primary{background:var(--red);color:white}.secondary{background:#222b3b;color:var(--text);border:1px solid var(--line)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:15px;margin:25px 0 60px}.card{background:linear-gradient(145deg,#192131,#121722);border:1px solid var(--line);border-radius:15px;padding:22px}.card h2{font-size:18px;margin:0 0 8px}.card p{color:var(--muted);margin:0}.number{color:var(--red);font-size:25px;font-weight:900;margin-bottom:10px}
+section h2{font-size:26px} .rule{border-top:1px solid var(--line);padding:16px 0;color:var(--muted)}.rule b{color:var(--text)}footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:13px}
+#setup{display:none;margin:10px 0 60px}.form{display:grid;gap:12px;max-width:520px}.form input,.form select{width:100%;padding:13px;border-radius:9px;border:1px solid var(--line);background:#0d121c;color:var(--text)}label{font-size:13px;color:var(--muted)}.notice{color:var(--gold);font-size:13px}
+</style>
+</head>
+<body>
+<header class="wrap top"><div class="brand">WRESTLING <span>SIMULATOR</span> ONLINE</div><div class="tag">FASE 1 · PROTÓTIPO</div></header>
+<main class="wrap">
+<section class="hero">
+<div class="eyebrow">Seu império começa aqui</div>
+<h1>Crie sua empresa.<br>Construa seu legado.</h1>
+<p>Gerencie uma promoção de wrestling, contrate talentos, organize shows e dispute espaço em um universo compartilhado com outros jogadores.</p>
+<div class="actions"><button class="btn primary" id="start">Criar minha empresa</button><a class="btn secondary" href="https://github.com/contatoreactbr-creator/wrestling-simulator-online">Ver projeto no GitHub</a></div>
+</section>
+<section class="grid" aria-label="Pilares do jogo">
+<article class="card"><div class="number">01</div><h2>Comece do zero</h2><p>Todo jogador funda sua própria promoção. Nenhum jogador assume diretamente uma empresa real.</p></article>
+<article class="card"><div class="number">02</div><h2>Negocie talentos</h2><p>Contrate wrestlers, respeitando contratos, disponibilidade e negociações.</p></article>
+<article class="card"><div class="number">03</div><h2>Universo compartilhado</h2><p>Empresas, talentos e calendário serão sincronizados pelo servidor.</p></article>
+</section>
+<section id="setup" class="card">
+<h2>Fundar sua promoção</h2>
+<p style="color:var(--muted)">Este formulário demonstra o início da carreira. Nesta fase, os dados ficam apenas neste navegador.</p>
+<form class="form" id="companyForm">
+<div><label for="player">Nome do empresário</label><input id="player" required maxlength="40" placeholder="Seu nome"></div>
+<div><label for="company">Nome da promoção</label><input id="company" required maxlength="50" placeholder="Nome da sua empresa"></div>
+<div><label for="country">País</label><select id="country"><option>Brasil</option><option>Estados Unidos</option><option>Canadá</option><option>Japão</option><option>Reino Unido</option><option>México</option><option>Outro</option></select></div>
+<div><label for="style">Estilo principal</label><select id="style"><option>Esportivo</option><option>Entretenimento</option><option>Hardcore</option><option>Lucha Libre</option><option>Misto</option></select></div>
+<button class="btn primary" type="submit">Fundar empresa</button>
+<div class="notice" id="feedback" role="status"></div>
+</form>
+</section>
+<section>
+<h2>Regras fundamentais</h2>
+<div class="rule"><b>Empresas reais:</b> controladas pelo sistema; podem ser parceiras, contratantes ou alvo de aquisição, conforme regras futuras.</div>
+<div class="rule"><b>Elenco inicial:</b> cada promoção criada receberá talentos genéricos. A versão online usará IDs globais para impedir identidades duplicadas.</div>
+<div class="rule"><b>Calendário:</b> o tempo será compartilhado. Nenhum jogador poderá avançar semanas por conta própria.</div>
+</section>
+</main>
+<footer><div class="wrap">Wrestling Simulator Online · Projeto em desenvolvimento · Protótipo local, sem multiplayer ativo.</div></footer>
+<script>
+const setup=document.getElementById('setup');
+document.getElementById('start').addEventListener('click',()=>{setup.style.display='block';setup.scrollIntoView({behavior:'smooth'});});
+document.getElementById('companyForm').addEventListener('submit',e=>{
+e.preventDefault();
+const data={player:document.getElementById('player').value.trim(),company:document.getElementById('company').value.trim(),country:document.getElementById('country').value,style:document.getElementById('style').value,createdAt:new Date().toISOString()};
+localStorage.setItem('wso_demo_company',JSON.stringify(data));
+document.getElementById('feedback').textContent='Promoção criada neste navegador: '+data.company+'. Esta demonstração ainda não salva dados em um servidor online.';
+});
+</script>
+</body>
+</html>
