@@ -142,7 +142,10 @@ $('authForm').addEventListener('submit', async (event) => {
       if (displayName.length < 2) throw new Error('Informe um nome de jogador com pelo menos 2 caracteres.');
       const { data, error } = await db.auth.signUp({
         email, password,
-        options: { data: { display_name: displayName } }
+        options: {
+          data: { display_name: displayName },
+          emailRedirectTo: window.location.origin + '/'
+        }
       });
       if (error) throw error;
       if (data.session) {
