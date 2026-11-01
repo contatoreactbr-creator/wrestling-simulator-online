@@ -18,9 +18,10 @@ O servidor será a autoridade do relógio global. A proposta inicial é usar tur
 ## Estado atual
 
 - **Fase 1 — protótipo de interface:** publicada em `index.html`; ainda funciona localmente.
-- **Fase 2 — fundação do banco:** migration PostgreSQL/Supabase em `supabase/migrations/202611010001_initial_world.sql`.
+- **Fase 2 — fundação do banco:** migration PostgreSQL/Supabase em `supabase/migrations/202611010001_initial_world.sql` (aplicada no projeto Supabase).
+- **Fase 3 — autenticação e fundação online:** cadastro, login, restauração de sessão e criação da promoção com 12 wrestlers via função SQL. Veja `docs/FASE_3_SUPABASE.md`.
 
-A Fase 2 prepara perfis, promoções, wrestlers globais, contratos, relógio compartilhado e ordens por turno. Ela ainda precisa ser aplicada em um projeto Supabase e conectada ao frontend. O multiplayer ainda não está ativo.
+A Fase 2 prepara perfis, promoções, wrestlers globais, contratos, relógio compartilhado e ordens por turno. A Fase 3 conecta autenticação e fundação de promoção ao Supabase. O multiplayer e o processamento de turnos ainda não estão ativos.
 
 ## Executar localmente
 
@@ -37,10 +38,10 @@ Acesse `http://localhost:8080`.
 
 ## Próximas etapas
 
-1. Criar um projeto Supabase e aplicar a migration da Fase 2 (veja `docs/FASE_2_BANCO_DE_DADOS.md`).
-2. Conectar cadastro/login e fundação da promoção ao banco.
-3. Implementar o serviço de servidor que fecha e processa os turnos globais.
-4. Adicionar negociações, shows, finanças e multiplayer.
+1. Testar cadastro, login e fundação online em `docs/FASE_3_SUPABASE.md`.
+2. Implementar o serviço de servidor que fecha e processa os turnos globais.
+3. Criar o painel de elenco, contratos e negociações.
+4. Adicionar shows, finanças e multiplayer.
 
 ## Dados e propriedade intelectual
 
