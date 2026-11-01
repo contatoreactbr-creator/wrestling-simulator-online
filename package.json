@@ -1,0 +1,9 @@
+{
+  "name": "wrestling-simulator-online",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Browser-based multiplayer wrestling management simulator",
+  "scripts": {
+    "start": "python -m http.server 8080"
+  }
+}
