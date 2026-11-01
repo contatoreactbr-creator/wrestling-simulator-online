@@ -34,7 +34,7 @@ section h2{font-size:26px}.rule{border-top:1px solid var(--line);padding:16px 0;
 <section class="card" id="account">
 <h2>Conta do jogador</h2>
 <p id="accountIntro">Crie sua conta ou entre para continuar sua carreira no universo online.</p>
-<form class="form" id="authForm">
+<form class="form" id="authForm" onsubmit="return false;">
 <div id="displayNameWrap"><label for="displayName">Nome do jogador</label><input id="displayName" maxlength="40" minlength="2" placeholder="Como quer aparecer no jogo"></div>
 <div><label for="email">E-mail</label><input id="email" type="email" autocomplete="email" required placeholder="voce@email.com"></div>
 <div><label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" minlength="6" required placeholder="Mínimo de 6 caracteres"></div>
